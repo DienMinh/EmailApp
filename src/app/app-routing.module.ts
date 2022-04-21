@@ -1,3 +1,4 @@
+import { EmailDetailComponent } from './Components/email-detail/email-detail.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -28,6 +29,11 @@ const routes: Routes = [
   {
     path: 'preferences',
     component: PreferencesComponent,
+  },
+  {
+    path: ':id',
+    component: EmailDetailComponent,
+    outlet: 'detail',
   },
   {
     path: '**',

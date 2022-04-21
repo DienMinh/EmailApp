@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from './../../Services/data.service';
 
 @Component({
@@ -11,9 +11,11 @@ export class EmailPreviewComponent implements OnInit {
   dataPreview: any[] = [];
   toggleUp = false;
   toggleDown = false;
+  active = '';
   constructor(
     private dataService: DataService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -54,5 +56,11 @@ export class EmailPreviewComponent implements OnInit {
         }
       });
     }
+  }
+  openEmailDetail(data: any) {
+    this.active = data._id;
+    this.router.navigateByUrl(
+      this.router.url.split('(')[0] + `(detail:${data._id})`
+    );
   }
 }

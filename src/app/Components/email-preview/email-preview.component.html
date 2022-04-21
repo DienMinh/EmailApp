@@ -18,7 +18,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr class="cursor-pointer" *ngFor="let data of dataPreview">
+      <tr
+        class="cursor-pointer"
+        *ngFor="let data of dataPreview"
+        (click)="openEmailDetail(data)"
+        [class.active]="active === data._id"
+      >
         <td>{{ data.from | summary }}</td>
         <td>{{ data.subject | summary: 40 }}</td>
         <td>{{ data.date | date: "YYYY/MM/dd" }}</td>
