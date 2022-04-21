@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-email-box',
@@ -40,18 +40,18 @@ export class EmailBoxComponent implements OnInit {
     },
   ];
   active: string = 'inbox';
-  constructor(private router: Router, route: ActivatedRoute) {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     this.boxs[0].open = true;
   }
 
   openBox(box: any) {
-    this.boxs.forEach((box) => {
-      box.open = false;
+    this.boxs.forEach((item) => {
+      item.open = false;
     });
     box.open = !box.open;
     this.active = box.value;
-    this.router.navigate(['messages/' + box.value]);
+    this.router.navigate([`messages/${box.value}`]);
   }
 }

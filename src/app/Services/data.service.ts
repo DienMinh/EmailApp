@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import data from '../../assets/messages';
+import data from 'src/assets/messages';
 @Injectable({
   providedIn: 'root',
 })
 export class DataService {
   constructor() {}
 
-  getDataBox(box: any) {
-    return data.filter((item) => {
+  getDataBox(box: string) {
+    return data.filter((item: any) => {
       return item.folder === box;
     });
   }

@@ -9,7 +9,8 @@ import { DataService } from './../../Services/data.service';
 })
 export class EmailPreviewComponent implements OnInit {
   dataPreview: any[] = [];
-  toggle: boolean = false;
+  toggleUp = false;
+  toggleDown = false;
   constructor(
     private dataService: DataService,
     private route: ActivatedRoute
@@ -20,22 +21,38 @@ export class EmailPreviewComponent implements OnInit {
       this.dataPreview = this.dataService.getDataBox(param['id']);
     });
   }
-  sortDate() {
-    this.toggle = !this.toggle;
-    if (this.toggle) {
+  sortUp() {
+    this.toggleUp = !this.toggleUp;
+    this.toggleDown = false;
+    if (this.toggleUp) {
       this.dataPreview.sort((a, b) => {
-        let x = a.date.toLowerCase();
-        let y = b.date.toLowerCase();
-        if (x < y) {
+        const dateItem_1 = a.date.toLowerCase();
+        const dateItem_2 = b.date.toLowerCase();
+        if (dateItem_1 < dateItem_2) {
           return -1;
-        } else if (x > y) {
+        } else if (dateItem_1 > dateItem_2) {
           return 1;
         } else {
           return 0;
         }
       });
-    } else {
-      this.dataPreview.reverse();
+    }
+  }
+  sortDown() {
+    this.toggleDown = !this.toggleDown;
+    this.toggleUp = false;
+    if (this.toggleDown) {
+      this.dataPreview.sort((a, b) => {
+        const dateItem_1 = a.date.toLowerCase();
+        const dateItem_2 = b.date.toLowerCase();
+        if (dateItem_1 < dateItem_2) {
+          return 1;
+        } else if (dateItem_1 > dateItem_2) {
+          return -1;
+        } else {
+          return 0;
+        }
+      });
     }
   }
 }
