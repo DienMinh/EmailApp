@@ -1,1 +1,28 @@
-<p>email-preview works!</p>
+<div class="email-preview">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Sender</th>
+        <th scope="col">Subject</th>
+        <th scope="col" class="d-flex justify-content-center">
+          <p class="m-0">Date</p>
+          <div class="icon-sort ml-1 d-flex flex-column">
+            <i class="fas fa-sort-up" *ngIf="!toggleUp" (click)="sortUp()"></i>
+            <i
+              class="fas fa-sort-down"
+              *ngIf="!toggleDown"
+              (click)="sortDown()"
+            ></i>
+          </div>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="cursor-pointer" *ngFor="let data of dataPreview">
+        <td>{{ data.from | summary }}</td>
+        <td>{{ data.subject | summary: 40 }}</td>
+        <td>{{ data.date | date: "YYYY/MM/dd" }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

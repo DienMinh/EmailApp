@@ -1,1 +1,12 @@
-<p>email-box works!</p>
+<ul class="list-group">
+  <li
+    class="list-group-item cursor-pointer"
+    *ngFor="let box of boxs"
+    (click)="openBox(box)"
+    [class.active]="active === box.value"
+  >
+    <i class="far fa-folder" *ngIf="!box.open"></i>
+    <i class="far fa-folder-open" *ngIf="box.open"></i>
+    {{ box.name }}
+  </li>
+</ul>

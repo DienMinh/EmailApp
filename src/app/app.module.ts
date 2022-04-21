@@ -11,6 +11,7 @@ import { PageNotFoundComponent } from './Components/page-not-found/page-not-foun
 import { MessagesComponent } from './Components/messages/messages.component';
 import { ContactsComponent } from './Components/contacts/contacts.component';
 import { PreferencesComponent } from './Components/preferences/preferences.component';
+import { SummaryPipe } from './Pipes/summary.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PreferencesComponent } from './Components/preferences/preferences.compo
     PageNotFoundComponent,
     MessagesComponent,
     ContactsComponent,
-    PreferencesComponent
+    PreferencesComponent,
+    SummaryPipe
   ],
   imports: [
     BrowserModule,

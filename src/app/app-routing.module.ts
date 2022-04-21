@@ -14,6 +14,11 @@ const routes: Routes = [
   },
   {
     path: 'messages',
+    redirectTo: 'messages/inbox',
+    pathMatch: 'full',
+  },
+  {
+    path: 'messages/:id',
     component: MessagesComponent,
   },
   {
