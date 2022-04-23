@@ -12,7 +12,7 @@ export class DataService {
     });
   }
   getEmailDetail(id: any) {
-    return data.filter((email) => {
+    return data.find((email) => {
       return email._id === id;
     });
   }

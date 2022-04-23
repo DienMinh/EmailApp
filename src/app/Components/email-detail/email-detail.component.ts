@@ -16,7 +16,7 @@ export class EmailDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe((param) => {
-      this.emailDetail = this.dataService.getEmailDetail(param['id'])[0];
+      this.emailDetail = this.dataService.getEmailDetail(param['id']);
     });
   }
 }

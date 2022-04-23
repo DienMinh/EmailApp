@@ -21,7 +21,7 @@
       <tr
         class="cursor-pointer"
         *ngFor="let data of dataPreview"
-        (click)="openEmailDetail(data)"
+        (click)="openEmailDetail(data?._id)"
         [class.active]="active === data._id"
       >
         <td>{{ data.from | summary }}</td>

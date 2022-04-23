@@ -57,10 +57,11 @@ export class EmailPreviewComponent implements OnInit {
       });
     }
   }
-  openEmailDetail(data: any) {
-    this.active = data._id;
-    this.router.navigateByUrl(
-      this.router.url.split('(')[0] + `(detail:${data._id})`
-    );
+  openEmailDetail(id: string) {
+    this.active = id;
+    if (!id) {
+      return;
+    }
+    this.router.navigateByUrl(`${this.router.url.split('(')[0]}(detail:${id})`);
   }
 }
