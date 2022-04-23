@@ -1,3 +1,4 @@
+import { EmailDetailComponent } from './Components/email-detail/email-detail.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -9,7 +10,7 @@ import { PageNotFoundComponent } from './Components/page-not-found/page-not-foun
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'messages',
+    redirectTo: 'messages/inbox',
     pathMatch: 'full',
   },
   {
@@ -28,6 +29,11 @@ const routes: Routes = [
   {
     path: 'preferences',
     component: PreferencesComponent,
+  },
+  {
+    path: ':id',
+    component: EmailDetailComponent,
+    outlet: 'detail',
   },
   {
     path: '**',

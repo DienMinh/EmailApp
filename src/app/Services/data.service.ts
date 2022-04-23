@@ -11,4 +11,9 @@ export class DataService {
       return item.folder === box;
     });
   }
+  getEmailDetail(id: any) {
+    return data.find((email) => {
+      return email._id === id;
+    });
+  }
 }
