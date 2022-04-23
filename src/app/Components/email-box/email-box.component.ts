@@ -39,7 +39,7 @@ export class EmailBoxComponent implements OnInit {
       open: false,
     },
   ];
-  active: string = 'inbox';
+  active = 'inbox';
   constructor(private router: Router) {}
 
   ngOnInit(): void {
