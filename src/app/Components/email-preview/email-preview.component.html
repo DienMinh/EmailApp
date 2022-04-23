@@ -7,11 +7,17 @@
         <th scope="col" class="d-flex justify-content-center">
           <p class="m-0">Date</p>
           <div class="icon-sort ml-1 d-flex flex-column">
-            <i class="fas fa-sort-up" *ngIf="!toggleUp" (click)="sortUp()"></i>
+            <i
+              class="fas fa-sort-up"
+              [attr.data-toggle]="'buttonUp'"
+              *ngIf="!toggleUp"
+              (click)="sortDate($event)"
+            ></i>
             <i
               class="fas fa-sort-down"
+              [attr.data-toggle]="'buttonDown'"
               *ngIf="!toggleDown"
-              (click)="sortDown()"
+              (click)="sortDate($event)"
             ></i>
           </div>
         </th>

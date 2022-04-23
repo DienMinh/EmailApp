@@ -23,34 +23,33 @@ export class EmailPreviewComponent implements OnInit {
       this.dataPreview = this.dataService.getDataBox(param['id']);
     });
   }
-  sortUp() {
-    this.toggleUp = !this.toggleUp;
-    this.toggleDown = false;
-    if (this.toggleUp) {
+  sortDate(event: any) {
+    const dataToggle = event.target.getAttribute('data-toggle');
+    if (dataToggle === 'buttonDown') {
+      this.toggleDown = !this.toggleDown;
+      this.toggleUp = false;
       this.dataPreview.sort((a, b) => {
         const dateItem_1 = a.date.toLowerCase();
         const dateItem_2 = b.date.toLowerCase();
         if (dateItem_1 < dateItem_2) {
-          return -1;
-        } else if (dateItem_1 > dateItem_2) {
           return 1;
+        } else if (dateItem_1 > dateItem_2) {
+          return -1;
         } else {
           return 0;
         }
       });
     }
-  }
-  sortDown() {
-    this.toggleDown = !this.toggleDown;
-    this.toggleUp = false;
-    if (this.toggleDown) {
+    if (dataToggle === 'buttonUp') {
+      this.toggleUp = !this.toggleUp;
+      this.toggleDown = false;
       this.dataPreview.sort((a, b) => {
         const dateItem_1 = a.date.toLowerCase();
         const dateItem_2 = b.date.toLowerCase();
         if (dateItem_1 < dateItem_2) {
-          return 1;
-        } else if (dateItem_1 > dateItem_2) {
           return -1;
+        } else if (dateItem_1 > dateItem_2) {
+          return 1;
         } else {
           return 0;
         }
