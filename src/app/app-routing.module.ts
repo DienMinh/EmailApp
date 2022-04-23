@@ -10,7 +10,7 @@ import { PageNotFoundComponent } from './Components/page-not-found/page-not-foun
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'messages',
+    redirectTo: 'messages/inbox',
     pathMatch: 'full',
   },
   {
